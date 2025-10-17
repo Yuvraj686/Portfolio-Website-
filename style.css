@@ -9,17 +9,23 @@ body {
     line-height: 1.6;
     color: #333;
 }
-.me {
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     align-items: center;
 }
-.container {
+.containers {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
+
+
 
 header {
     background: #2c3e50;
@@ -203,3 +209,4 @@ footer {
         gap: 1rem;
     }
 }
+
