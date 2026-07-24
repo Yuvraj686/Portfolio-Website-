@@ -1,7 +1,52 @@
 from flask import Flask, render_template
+import os
 
 app = Flask(__name__)
 
+# ── Skills ──────────────────────────────────────────────────────────────────
+SKILLS = [
+    {
+        'category': 'Languages',
+        'icon': 'fa-code',
+        'items': ['Python', 'JavaScript', 'HTML', 'CSS', 'SQL', 'C++']
+    },
+    {
+        'category': 'Frameworks & Libraries',
+        'icon': 'fa-puzzle-piece',
+        'items': ['Flask', 'React', 'Bootstrap', 'Jinja2', 'REST APIs']
+    },
+    {
+        'category': 'Databases',
+        'icon': 'fa-database',
+        'items': ['MongoDB', 'SQLite', 'MySQL']
+    },
+    {
+        'category': 'Tools & Platforms',
+        'icon': 'fa-wrench',
+        'items': ['Git', 'GitHub', 'VS Code', 'Postman', 'Render', 'Linux']
+    }
+]
+
+# ── Experience ───────────────────────────────────────────────────────────────
+EXPERIENCE = [
+    {
+        'role': 'Backend Development Intern',
+        'company': 'Tech Startup (Confidential)',
+        'duration': 'Jun 2024 – Aug 2024',
+        'type': 'Internship',
+        'location': 'Remote',
+        'achievements': [
+            'Designed and shipped production-ready REST API endpoints integrated with the frontend team, streamlining data flow across services.',
+            'Collaborated with the backend team to define and document API contracts using Postman, improving cross-team communication and reducing integration errors.',
+            'Identified and resolved critical bugs in the existing codebase, improving system stability and reducing error rates in production.'
+        ]
+    }
+]
+
+# ── Currently Learning ────────────────────────────────────────────────────────
+CURRENTLY_LEARNING = ['Docker', 'System Design', 'PostgreSQL']
+
+# ── Projects ──────────────────────────────────────────────────────────────────
 PORTFOLIO_PROJECTS = [
     {
         'id': 1,
@@ -34,21 +79,40 @@ PORTFOLIO_PROJECTS = [
         'id': 4,
         'name': 'Portfolio Website',
         'description': 'A personal portfolio website built with Flask to showcase my projects, skills, and resume.',
-        'full_description': 'This portfolio site is a single-page Flask application showcasing projects, an about section, and a contact form. It features smooth-scroll navigation, a project detail modal, responsive layout across devices, and a downloadable resume. Project data is managed server-side in Python and injected into Jinja2 templates at render time.',
-        'project_structure': 'Flask app with a single route rendering a Jinja2 template, static assets (CSS/JS/PDF), project data defined in Python, vanilla JS for interactivity (modal, smooth scroll, form handling).',
+        'full_description': 'This portfolio site is a single-page Flask application showcasing projects, an about section, and a contact form. It features smooth-scroll navigation, a project detail modal, dark mode, scroll-reveal animations, and a downloadable resume. Project data is managed server-side in Python and injected into Jinja2 templates at render time.',
+        'project_structure': 'Flask app with a single route rendering a Jinja2 template, static assets (CSS/JS/PDF), project data defined in Python, vanilla JS for interactivity (modal, dark mode, scroll-reveal, form handling).',
         'tech_stack': ['Python', 'Flask', 'Jinja2', 'HTML', 'CSS', 'JavaScript', 'Bootstrap'],
         'link': 'https://github.com/Yuvraj686/Portfolio-Website-'
     }
 ]
 
+
 @app.route('/')
 def home():
-    return render_template('home.html', projects=PORTFOLIO_PROJECTS, title='My Portfolio')
+    return render_template(
+        'home.html',
+        projects=PORTFOLIO_PROJECTS,
+        skills=SKILLS,
+        experience=EXPERIENCE,
+        currently_learning=CURRENTLY_LEARNING,
+        title='My Portfolio'
+    )
+
 
 @app.route('/resume')
-def index():
-    pdf_filename = 'Resume.pdf'
-    return render_template('home.html', pdf_filename=pdf_filename)
+def resume():
+    return render_template('home.html', pdf_filename='Resume.pdf',
+                           projects=PORTFOLIO_PROJECTS, skills=SKILLS,
+                           experience=EXPERIENCE,
+                           currently_learning=CURRENTLY_LEARNING,
+                           title='My Portfolio')
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    debug_mode = os.environ.get('FLASK_DEBUG', 'False') == 'True'
+    app.run(host='0.0.0.0', debug=debug_mode)
