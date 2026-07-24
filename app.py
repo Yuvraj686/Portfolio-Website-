@@ -71,30 +71,21 @@ PORTFOLIO_PROJECTS = [
     },
     {
         'id': 2,
+        'name': 'Stock Trading Simulator',
+        'description': 'A responsive full-stack web application for virtual stock trading, portfolio tracking, and real-time market simulation.',
+        'full_description': 'A full-stack web application that allows users to experience stock trading without financial risk. It features secure user authentication via Supabase Auth, a virtual wallet for buying and selling stocks, portfolio tracking with real-time net worth calculation, transaction history logs, and a live group chat powered by Supabase Realtime.',
+        'project_structure': 'Decoupled architecture: React + TypeScript frontend built with Vite, Python FastAPI backend, Supabase PostgreSQL database, and Supabase Auth & Realtime for live user interactions.',
+        'tech_stack': ['Python', 'FastAPI', 'TypeScript', 'React', 'Supabase', 'PostgreSQL', 'REST API'],
+        'link': 'https://github.com/Yuvraj686/Stock-trading-simulator'
+    },
+    {
+        'id': 3,
         'name': 'Online Classroom Platform',
         'description': 'A platform for online learning and collaboration between students and educators.',
         'full_description': 'An end-to-end web platform that bridges students and educators through a structured online learning environment. The system supports course creation, assignment management, and student enrollment workflows. Role-based access control separates educator and student capabilities, and the application follows an MVC pattern throughout.',
         'project_structure': 'Flask MVC application: route handlers, Jinja2 HTML templates, SQLite relational database for users/courses/assignments, Bootstrap-based responsive frontend.',
         'tech_stack': ['Python', 'Flask', 'Jinja2', 'HTML', 'CSS', 'JavaScript', 'SQLite', 'Bootstrap'],
         'link': 'https://github.com/Yuvraj686/Online-Classroom-Platform'
-    },
-    {
-        'id': 3,
-        'name': 'Drive Dreams',
-        'description': 'A passion project for F1 lovers — exploring the dreams, data, and drama behind Formula 1 racing.',
-        'full_description': 'Drive Dreams is an interactive web experience built for Formula 1 enthusiasts, combining motorsport data with a visually rich UI. The project explores driver stats, race history, and the culture surrounding F1. It demonstrates data-driven front-end rendering served through a lightweight Flask backend.',
-        'project_structure': 'Flask backend serving server-rendered Jinja2 templates, static data files for F1 content, custom CSS for the themed UI, modular template structure.',
-        'tech_stack': ['Python', 'Flask', 'Jinja2', 'HTML', 'CSS', 'JavaScript'],
-        'link': 'https://github.com/Yuvraj686/Drive-Dreams'
-    },
-    {
-        'id': 4,
-        'name': 'Portfolio Website',
-        'description': 'A personal portfolio website built with Flask to showcase my projects, skills, and resume.',
-        'full_description': 'This portfolio site is a single-page Flask application showcasing projects, an about section, and a contact form. It features smooth-scroll navigation, a project detail modal, dark mode, scroll-reveal animations, and a downloadable resume. Project data is managed server-side in Python and injected into Jinja2 templates at render time.',
-        'project_structure': 'Flask app with a single route rendering a Jinja2 template, static assets (CSS/JS/PDF), project data defined in Python, vanilla JS for interactivity (modal, dark mode, scroll-reveal, form handling).',
-        'tech_stack': ['Python', 'Flask', 'Jinja2', 'HTML', 'CSS', 'JavaScript', 'Bootstrap'],
-        'link': 'https://github.com/Yuvraj686/Portfolio-Website-'
     }
 ]
 
