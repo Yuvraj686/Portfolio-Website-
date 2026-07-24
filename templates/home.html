@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <meta name="description" content="Yuvraj Garg – B.Tech IT student and developer passionate about building web experiences.">
+    <meta name="description" content="Yuvraj Garg – Backend-focused developer and B.Tech IT student with internship experience shipping production APIs.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -40,10 +40,14 @@
             <h2 class="section-title">About Me</h2>
             <div class="about-body">
                 <p class="about-text">
-                    Hello, I'm Yuvraj Garg, and I'm a current 3rd year B.Tech student in Information Technology.
-                    While a portfolio shows my projects, I wanted this space to share the drive behind them — the
-                    philosophies, passions, and lessons that guide my work. Right now, I'm at the exciting crossroads
-                    where academic theory meets real-world application, and that is where the best solutions are born.
+                    Yuvraj Garg is a backend-focused software developer and 3rd-year B.Tech (Information Technology) student
+                    with hands-on experience shipping production-grade API endpoints during an industry internship.
+                    He has independently designed and built two full-stack web applications, demonstrating the ability
+                    to own a feature end-to-end — from database schema design through to frontend integration.
+                    His core strengths lie in Python, Flask, and RESTful API development, supported by practical experience
+                    working on real-world systems under production constraints.
+                    He is actively seeking internship and entry-level engineering roles where he can contribute meaningfully
+                    to backend systems and continue growing as a developer.
                 </p>
                 <div class="resume-link-wrapper">
                     <a href="{{ url_for('static', filename='Resume.pdf') }}" target="_blank" class="resume-btn">
@@ -58,12 +62,29 @@
     <section id="projects" class="projects">
         <div class="containers">
             <h2 class="section-title">My Projects</h2>
+            <p class="projects-hint"><i class="fa fa-hand-pointer-o"></i> Click any card for details</p>
             <div class="project-grid">
                 {% for project in projects %}
-                <div class="project-card">
-                    <h3>{{ project.name }}</h3>
+                <div class="project-card"
+                     role="button"
+                     tabindex="0"
+                     aria-haspopup="dialog"
+                     data-name="{{ project.name }}"
+                     data-description="{{ project.full_description }}"
+                     data-structure="{{ project.project_structure }}"
+                     data-tech="{{ project.tech_stack | join(',') }}"
+                     data-link="{{ project.link }}">
+                    <div class="card-top">
+                        <span class="card-number">0{{ loop.index }}</span>
+                        <h3>{{ project.name }}</h3>
+                    </div>
                     <p>{{ project.description }}</p>
-                    <a href="{{ project.link }}" target="_blank" class="project-link">View Project</a>
+                    <div class="card-footer-row">
+                        <a href="{{ project.link }}" target="_blank" class="project-link" id="view-link-{{ project.id }}" onclick="event.stopPropagation()">
+                            View Project <i class="fa fa-external-link"></i>
+                        </a>
+                        <span class="card-detail-hint">Details →</span>
+                    </div>
                 </div>
                 {% endfor %}
             </div>
@@ -115,6 +136,36 @@
     <footer>
         <p>&copy; 2025 Yuvraj Garg. All rights reserved.</p>
     </footer>
+
+    <!-- Project Detail Modal -->
+    <div id="project-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+        <div class="modal-box">
+            <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-header">
+                <span class="modal-label">Project</span>
+                <h2 id="modal-title"></h2>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4><i class="fa fa-info-circle"></i> About</h4>
+                    <p id="modal-description"></p>
+                </div>
+                <div class="modal-section">
+                    <h4><i class="fa fa-sitemap"></i> Architecture</h4>
+                    <p id="modal-structure"></p>
+                </div>
+                <div class="modal-section">
+                    <h4><i class="fa fa-code"></i> Tech Stack</h4>
+                    <div id="modal-tech" class="tech-badges"></div>
+                </div>
+            </div>
+            <div class="modal-footer-bar">
+                <a id="modal-link" href="#" target="_blank" class="modal-view-btn">
+                    View Project <i class="fa fa-external-link"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
