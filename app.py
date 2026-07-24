@@ -31,14 +31,14 @@ SKILLS = [
 EXPERIENCE = [
     {
         'role': 'Backend Development Intern',
-        'company': 'Tech Startup (Confidential)',
-        'duration': 'Jun 2024 – Aug 2024',
+        'company': 'Destm Technologies',
+        'duration': 'Jun 2026 – Jul 2026',
         'type': 'Internship',
-        'location': 'Remote',
+        'location': 'On-site',
         'achievements': [
-            'Designed and shipped production-ready REST API endpoints integrated with the frontend team, streamlining data flow across services.',
-            'Collaborated with the backend team to define and document API contracts using Postman, improving cross-team communication and reducing integration errors.',
-            'Identified and resolved critical bugs in the existing codebase, improving system stability and reducing error rates in production.'
+            'Contributed to a web-based chat application, building REST APIs with Python/FastAPI and implementing one-to-one and group chat features on a React.js, JavaScript, and React Router front end.',
+            'Implemented JWT-based authentication and worked hands-on with MongoDB for data storage and management across the application.',
+            'Worked under a senior full-stack developer across both backend and frontend tasks, maintaining consistent code quality and responsibility on all assigned work.'
         ]
     }
 ]
