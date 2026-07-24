@@ -8,22 +8,22 @@ SKILLS = [
     {
         'category': 'Languages',
         'icon': 'fa-code',
-        'items': ['Python', 'JavaScript', 'HTML', 'CSS', 'SQL', 'C++']
+        'skills': ['Python', 'JavaScript', 'HTML', 'CSS', 'SQL', 'C++']
     },
     {
         'category': 'Frameworks & Libraries',
         'icon': 'fa-puzzle-piece',
-        'items': ['Flask', 'React', 'Bootstrap', 'Jinja2', 'REST APIs']
+        'skills': ['Flask', 'React', 'Bootstrap', 'Jinja2', 'REST APIs']
     },
     {
         'category': 'Databases',
         'icon': 'fa-database',
-        'items': ['MongoDB', 'SQLite', 'MySQL']
+        'skills': ['MongoDB', 'SQLite', 'MySQL']
     },
     {
         'category': 'Tools & Platforms',
         'icon': 'fa-wrench',
-        'items': ['Git', 'GitHub', 'VS Code', 'Postman', 'Render', 'Linux']
+        'skills': ['Git', 'GitHub', 'VS Code', 'Postman', 'Render', 'Linux']
     }
 ]
 
