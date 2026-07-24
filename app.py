@@ -40,6 +40,18 @@ EXPERIENCE = [
             'Implemented JWT-based authentication and worked hands-on with MongoDB for data storage and management across the application.',
             'Worked under a senior full-stack developer across both backend and frontend tasks, maintaining consistent code quality and responsibility on all assigned work.'
         ]
+    },
+    {
+        'role': 'Software Developer Intern',
+        'company': 'Prodigy InfoTech',
+        'duration': 'Jul 2025 – Aug 2025',
+        'type': 'Internship',
+        'location': 'Remote',
+        'achievements': [
+            'Designed and shipped 10+ production REST API endpoints in Python (FastAPI/Flask), improving data retrieval response times and enabling new front-end features.',
+            'Integrated JWT-based authentication across multiple endpoints, ensuring secure, role-scoped access to protected resources.',
+            'Collaborated in an agile team of 5 engineers — participated in daily stand-ups, code reviews, and bi-weekly sprint planning using Git branching workflows.'
+        ]
     }
 ]
 
