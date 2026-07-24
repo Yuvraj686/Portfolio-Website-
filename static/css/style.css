@@ -1,3 +1,6 @@
+/* ===========================
+   RESET & BASE
+=========================== */
 * {
     margin: 0;
     padding: 0;
@@ -10,23 +13,48 @@ body {
     color: #333;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    align-items: center;
-}
+/* ===========================
+   LAYOUT UTILITIES
+=========================== */
 .containers {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 24px;
 }
 
+/* ===========================
+   SOCIAL ICONS
+=========================== */
+.fa-instagram {
+    font-size: 26px;
+    color: #e1306c;
+    padding: 8px;
+    transition: opacity 0.2s;
+}
 
+.fa-linkedin {
+    font-size: 26px;
+    color: #0077b5;
+    padding: 8px;
+    transition: opacity 0.2s;
+}
 
+.fa-github {
+    font-size: 26px;
+    color: #24292e;
+    padding: 8px;
+    transition: opacity 0.2s;
+}
+
+.fa-instagram:hover,
+.fa-linkedin:hover,
+.fa-github:hover {
+    opacity: 0.75;
+}
+
+/* ===========================
+   HEADER / NAV
+=========================== */
 header {
     background: #2c3e50;
     color: white;
@@ -35,21 +63,24 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 nav {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: white;
 }
 
 .nav-links {
@@ -59,15 +90,23 @@ nav {
 }
 
 .nav-links a {
-    color: white;
+    color: rgba(255, 255, 255, 0.88);
     text-decoration: none;
-    transition: color 0.3s;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.25s, border-color 0.25s;
 }
 
 .nav-links a:hover {
     color: #3498db;
+    border-bottom-color: #3498db;
 }
 
+/* ===========================
+   HERO
+=========================== */
 .hero {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
@@ -83,130 +122,372 @@ nav {
 .hero-content h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
+    font-weight: 700;
 }
 
 .hero-content p {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin-bottom: 2rem;
+    opacity: 0.92;
 }
 
 .cta-button {
     display: inline-block;
     background: white;
     color: #667eea;
-    padding: 1rem 2rem;
-    border-radius: 5px;
+    padding: 0.9rem 2rem;
+    border-radius: 6px;
     text-decoration: none;
-    font-weight: bold;
-    transition: transform 0.3s, box-shadow 0.3s;
+    font-weight: 700;
+    font-size: 1rem;
+    border: 2px solid white;
+    transition: transform 0.25s, box-shadow 0.25s;
 }
 
 .cta-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
 }
 
+/* ===========================
+   SECTION SHARED
+=========================== */
 section {
     padding: 5rem 0;
 }
 
-.about {
-    background: #f4f4f4;
-}
-
-.about h2, .projects h2, .contact h2 {
+.section-title {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
     color: #2c3e50;
+    position: relative;
+    padding-bottom: 0.8rem;
 }
 
-.about p {
+.section-title::after {
+    content: '';
+    display: block;
+    width: 52px;
+    height: 3px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 2px;
+    margin: 0.5rem auto 0;
+}
+
+/* ===========================
+   ABOUT SECTION
+=========================== */
+.about-section {
+    background: #f7f8fc;
+    border-top: 1px solid #e4e6ef;
+    border-bottom: 1px solid #e4e6ef;
+}
+
+.about-body {
+    max-width: 720px;
+    margin: 2.2rem auto 0;
     text-align: center;
-    font-size: 1.2rem;
-    max-width: 800px;
-    margin: 0 auto;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.resume-link-wrapper {
+    margin-top: 0.5rem;
+}
+
+.resume-btn {
+    display: inline-block;
+    padding: 0.7rem 1.6rem;
+    background: transparent;
+    color: #667eea;
+    border: 2px solid #667eea;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background 0.25s, color 0.25s, transform 0.2s;
+}
+
+.resume-btn:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ===========================
+   PROJECTS SECTION
+=========================== */
+.projects {
+    background: #fff;
 }
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.8rem;
+    margin-top: 2.5rem;
 }
 
 .project-card {
-    background: white;
-    padding: 2rem;
+    background: #fff;
+    padding: 1.8rem;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #e4e6ef;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(102, 126, 234, 0.16);
+    border-color: #667eea;
 }
 
 .project-card h3 {
     color: #667eea;
-    margin-bottom: 1rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
 }
 
+.project-card p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    flex-grow: 1;
+    margin-bottom: 1.2rem;
+}
+
+.project-link {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 0.45rem 1.1rem;
+    background: transparent;
+    color: #667eea;
+    border: 1.5px solid #667eea;
+    border-radius: 5px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.22s, color 0.22s;
+}
+
+.project-link:hover {
+    background: #667eea;
+    color: white;
+}
+
+/* ===========================
+   CONTACT SECTION
+=========================== */
 .contact {
-    background: #f4f4f4;
+    background: #f7f8fc;
+    border-top: 1px solid #e4e6ef;
 }
 
+.contact-intro {
+    text-align: center;
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 2.8rem;
+    margin-top: 0.4rem;
+}
+
+.contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 3rem;
+    align-items: start;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Contact Info Panel */
+.contact-info {
+    background: white;
+    border: 1px solid #e4e6ef;
+    border-radius: 10px;
+    padding: 2rem 1.6rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.6rem;
+    padding-bottom: 1.4rem;
+    border-bottom: 1px solid #e4e6ef;
+}
+
+.contact-detail .fa {
+    font-size: 20px;
+    color: #667eea;
+    width: 24px;
+    text-align: center;
+}
+
+.contact-detail a {
+    color: #333;
+    text-decoration: none;
+    font-size: 0.95rem;
+    word-break: break-all;
+    transition: color 0.2s;
+}
+
+.contact-detail a:hover {
+    color: #667eea;
+}
+
+.social-icons {
+    display: flex;
+    gap: 0.4rem;
+    margin-top: 0.2rem;
+}
+
+/* Contact Form */
 .contact-form {
-    max-width: 600px;
-    margin: 2rem auto;
+    background: white;
+    border: 1px solid #e4e6ef;
+    border-radius: 10px;
+    padding: 2rem 1.8rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #2c3e50;
+    letter-spacing: 0.01em;
 }
 
 .contact-form input,
 .contact-form textarea {
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid #dde0ec;
+    border-radius: 6px;
+    font-size: 0.97rem;
     font-family: inherit;
+    color: #333;
+    background: #fafbff;
+    transition: border-color 0.22s, box-shadow 0.22s;
+    outline: none;
 }
 
-.contact-form button {
-    background: #667eea;
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+    background: white;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.send-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
-    padding: 1rem 2rem;
+    padding: 0.8rem 1.8rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: background 0.3s;
+    align-self: flex-start;
+    transition: opacity 0.25s, transform 0.2s;
 }
 
-.contact-form button:hover {
-    background: #764ba2;
+.send-btn:hover {
+    opacity: 0.88;
+    transform: translateY(-2px);
 }
 
+/* ===========================
+   FOOTER
+=========================== */
 footer {
     background: #2c3e50;
-    color: white;
+    color: rgba(255, 255, 255, 0.8);
     text-align: center;
-    padding: 2rem 0;
+    padding: 1.8rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 0.9rem;
 }
 
+/* ===========================
+   RESPONSIVE
+=========================== */
 @media (max-width: 768px) {
     .hero-content h1 {
         font-size: 2rem;
     }
-    
+
     .hero-content p {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
-    
+
     .nav-links {
         gap: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .contact-inner {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .contact-form {
+        padding: 1.4rem 1.2rem;
+    }
+
+    .contact-info {
+        padding: 1.4rem 1.2rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-body {
+        padding: 0 0.5rem;
     }
 }
 
+@media (max-width: 480px) {
+    .nav-links {
+        gap: 0.7rem;
+        font-size: 0.82rem;
+    }
+
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 1.65rem;
+    }
+}
