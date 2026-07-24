@@ -8,22 +8,22 @@ SKILLS = [
     {
         'category': 'Languages',
         'icon': 'fa-code',
-        'skills': ['Python', 'JavaScript', 'HTML', 'CSS', 'SQL', 'C++']
+        'skill_list': ['Python', 'JavaScript', 'HTML', 'CSS', 'SQL', 'C++']
     },
     {
         'category': 'Frameworks & Libraries',
         'icon': 'fa-puzzle-piece',
-        'skills': ['Flask', 'React', 'Bootstrap', 'Jinja2', 'REST APIs']
+        'skill_list': ['Flask', 'React', 'Bootstrap', 'Jinja2', 'REST APIs']
     },
     {
         'category': 'Databases',
         'icon': 'fa-database',
-        'skills': ['MongoDB', 'SQLite', 'MySQL']
+        'skill_list': ['MongoDB', 'SQLite', 'MySQL']
     },
     {
         'category': 'Tools & Platforms',
         'icon': 'fa-wrench',
-        'skills': ['Git', 'GitHub', 'VS Code', 'Postman', 'Render', 'Linux']
+        'skill_list': ['Git', 'GitHub', 'VS Code', 'Postman', 'Render', 'Linux']
     }
 ]
 
@@ -92,7 +92,7 @@ def home():
     return render_template(
         'home.html',
         projects=PORTFOLIO_PROJECTS,
-        skills=SKILLS,
+        skill_groups=SKILLS,
         experience=EXPERIENCE,
         currently_learning=CURRENTLY_LEARNING,
         title='My Portfolio'
@@ -102,7 +102,7 @@ def home():
 @app.route('/resume')
 def resume():
     return render_template('home.html', pdf_filename='Resume.pdf',
-                           projects=PORTFOLIO_PROJECTS, skills=SKILLS,
+                           projects=PORTFOLIO_PROJECTS, skill_groups=SKILLS,
                            experience=EXPERIENCE,
                            currently_learning=CURRENTLY_LEARNING,
                            title='My Portfolio')

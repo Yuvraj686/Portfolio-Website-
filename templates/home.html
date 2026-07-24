@@ -102,14 +102,14 @@
         <div class="containers">
             <h2 class="section-title">Skills</h2>
             <div class="skills-grid">
-                {% for group in skills %}
+                {% for group in skill_groups %}
                 <div class="skill-card">
                     <div class="skill-card-header">
                         <i class="fa {{ group.icon }}"></i>
                         <h3>{{ group.category }}</h3>
                     </div>
                     <div class="skill-badges">
-                        {% for skill in group.skills %}
+                        {% for skill in group.skill_list %}
                         <span class="skill-badge">{{ skill }}</span>
                         {% endfor %}
                     </div>
